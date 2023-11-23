@@ -5,11 +5,31 @@ void setup(){
 
 void draw(){
   background(0);
-  //orange
   noStroke();
+  
+  //white
+  fill(255);
+  //left paw
+  rect(40,180,20,10);
+  //right paw
+  rect(100,180,20,10);
+  //left foot
+  triangle(70,210,80,220,70,230);
+  //right foot 
+  triangle(80,220,90,210,90,230);
+  
+  //orange
   fill(232,154,95);
   //cat body
   ellipse(80,170,60,100);
+  //left arm
+  triangle(40,180,60,150,60,180);
+  //right arm
+  triangle(100,150,120,180,100,180);
+  //left leg
+  rect(60,200,10,30);
+  //right leg
+  rect(90,200,10,30);
   
   //white
   fill(255);
@@ -42,6 +62,12 @@ void draw(){
   circle(90,122,2);
   //left eye pupil 
   circle(75,122,2);
-  //test
   
+  stroke(0);
+  //right wiskers 
+  line(95,130,110,125);
+  line(95,130,110,130);
+  //left wiskers
+  line(70,130,55,125); 
+  line(50,130,70,130);
 }
