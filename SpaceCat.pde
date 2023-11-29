@@ -7,10 +7,10 @@ void setup(){
 void draw(){
   background(0);
   
-  myCat.applyGravity();
-  myCat.jump();
-  myCat.show();
+  myCat.display();
 }
+
+
 
 
     

@@ -1,35 +1,24 @@
-class Cat {
+class Cat{
   float y;
-  //control the vertical velocity of the meow meow 
-  float vy;
+  float velocity;
   float gravity;
   
-  Cat() {
-    y = height/2;
-    vy = 0;
-    // play around with gravity
-    gravity = 0.1;
+  Cat(){   
+    y=170;
+    velocity=0;
+    gravity=0.5;
   }
   
-  void applyGravity() {
-    vy += gravity;
-    y += vy;
+  void update(){
+    velocity += gravity;
+    y += velocity;
     
-    if (y>height-20){
-      y=height-20;
-      vy *= -0.6;
-    }
+    y =constrain(y,0,height);
   }
   
-  void jump(){
-    if (key == 'w' || key == 'W' && y == height -20){
-      vy =-6;
-    }
-  }
-  
-void show(){
-  noStroke();
+void display(){  
   //draw the cat
+  noStroke();
   //left paw
   rectMode(CORNER);
   //white
@@ -39,11 +28,12 @@ void show(){
   rect(100,y+180,20,10);
   
   //orange
-  fill(232,y+154,95);
+  //found out fill(232,y+154,95) does cool colour changing effect 
+  fill(232,154,95);
   //cat body
   ellipse(80,y+170,60,100);
   //left arm
-  triangle(40,y+180,60,150,60,180);
+  triangle(40,y+180,60,y+150,60,y+180);
   //right arm
   triangle(100,y+150,120,y+180,100,y+180);
   //left leg
@@ -89,13 +79,17 @@ void show(){
   
   stroke(0);
   //right wiskers 
-  line(95,y+130,110,125);
-  line(95,y+130,110,130);
+  line(95,y+130,110,y+125);
+  line(95,y+130,110,y+130);
   //left wiskers
-  line(70,y+130,55,125); 
-  line(50,y+130,70,130);
+  line(70,y+130,55,y+125); 
+  line(50,y+130,70,y+130);
+  }
+  
+  void jump(){
+    velocity = -10;
   }
 }
 
-Cat myCat;{
+Cat myCat; {
 }
