@@ -13,7 +13,8 @@ class Cat{
     velocity += gravity;
     y += velocity;
     
-    y =constrain(y,0,height);
+    //trying to troubleshoot the cat's constrains 
+    y =constrain(y,0,height+80);
   }
   
 void display(){  
@@ -84,7 +85,8 @@ void display(){
   //left whiskers
   line(70,y+130,55,y+125); 
   line(50,y+130,70,y+130);
-  }
+  
+}
   
   //fix jumping function
   void jump(){
