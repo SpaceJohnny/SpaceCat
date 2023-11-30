@@ -1,16 +1,24 @@
+Cat cat;
+
 void setup(){
   size(400,400);
   frameRate(60);
-  myCat = new Cat();
+  cat = new Cat();
 }
 
 void draw(){
   background(0);
   
-  myCat.display();
+  //call cat drawing from cat class
+  cat.display();
+  cat.update();
 }
 
-
+void keyPressed(){
+  if (key == ' '){
+    cat.jump();
+  }
+}
 
 
     

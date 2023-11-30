@@ -78,18 +78,16 @@ void display(){
   circle(75,y+122,2);
   
   stroke(0);
-  //right wiskers 
+  //right whiskers 
   line(95,y+130,110,y+125);
   line(95,y+130,110,y+130);
-  //left wiskers
+  //left whiskers
   line(70,y+130,55,y+125); 
   line(50,y+130,70,y+130);
   }
   
+  //fix jumping function
   void jump(){
-    velocity = -10;
+      velocity = -10;
   }
-}
-
-Cat myCat; {
 }
