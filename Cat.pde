@@ -6,6 +6,7 @@ class Cat{
   //make cat physics 
   //cat doesn't move horizontally 
   //cat only moves by jumping vertically, accelerates when doing downwards 
+  //this was inspired by flappybird 
   Cat(){   
     y=0;
     velocity=0;
@@ -88,7 +89,6 @@ void display(){
   //left whiskers
   line(70,y+130,55,y+125); 
   line(50,y+130,70,y+130);
-  
 }
   
   //gives cat vertical velocity when jumping 
@@ -97,6 +97,8 @@ void display(){
   }
   
   //uses cat's head to check the distance from the asteroid the head 
+  //i used the cat's head as a hitbox because the cat is kinda large so 
+  //it would be easier to play if it was just the head
   //the collision occurs if the cat's head radius of 20 sums up to asteroid radius
   boolean checkCollision(float asteroidX,float asteroidY, float asteroidRadius){
     float d = dist(80, y+125,asteroidX,asteroidY);

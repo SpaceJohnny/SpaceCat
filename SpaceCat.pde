@@ -1,6 +1,9 @@
-Cat cat;
 //aidhaiohjdo ahdoja
 //coding is so painful :(
+Cat cat;
+
+//used for when the game is restarted
+boolean GameOverScreen = false; 
 
 void setup(){
   //originally 400x400
@@ -15,7 +18,7 @@ void setup(){
   
   //asteroid objects added to asteroids ArrayList
   //looped 5 times
-  for (int i = 0; i < 5; i++){
+  for (int i=0; i<5; i++){
     asteroids.add(new Asteroid());
   }
 }
@@ -32,7 +35,7 @@ void draw(){
   //if collision occurs, game over 
   if (cat.checkCollision(asteroid.asteroidX,asteroid.asteroidY,asteroid.radius)){
     gameOver();
-  }
+    }
   }
   
   //call cat drawing from cat class
@@ -44,10 +47,10 @@ void draw(){
 void keyPressed(){
   if (key == ' '){
     cat.jump();
+  //R to restart the game 
+  } else if (key == 'R'||key == 'r'){
+    restartGame();
   }
-  //if (key == 'R' || 'r'){
-    //gameOver();
-//}
 }
 
 //Game Over screen when cat collides with asteroid 
@@ -59,7 +62,24 @@ void gameOver(){
   textAlign(CENTER,CENTER);
   text("Game Over! Press 'R' to Restart", width/2,height/2);
   //stops the draw loop 
-  noLoop();    
+  noLoop();
+  //game over screen is on 
+  GameOverScreen = true;
+}
+
+//game over screen is off when the game restarts 
+void restartGame(){
+  //starts the draw loop 
+  loop();
+  GameOverScreen = false;
+  //reset cat class and asteroids ArrayList 
+  cat = new Cat();
+  asteroids.clear();
+  
+  //new asteroids addded into ArrayList 
+  for (int i=0; i<5; i++){
+    asteroids.add(new Asteroid());
+  }
 }
 
     
