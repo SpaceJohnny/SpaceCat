@@ -12,7 +12,7 @@ class Asteroid{
     asteroidY = random(height);
     //randomize speed and radius 
     speed = random(3,6);
-    radius = random(20,15);
+    radius = random(15,30);
   }
   
   void update(){
@@ -26,9 +26,10 @@ class Asteroid{
     }
   }
   
+  //draw the asteroid 
   void display(){
     fill(255);
-    ellipse(asteroidX,asteroidY, radius * 2, radius * 2);
+    ellipse(asteroidX,asteroidY, radius*2, radius*2);
   }
 }
     

@@ -3,33 +3,36 @@ class Cat{
   float velocity;
   float gravity;
   
+  //make cat physics 
+  //cat doesn't move horizontally 
+  //cat only moves by jumping vertically, accelerates when doing downwards 
   Cat(){   
-    y=170;
+    y=0;
     velocity=0;
     gravity=0.5;
   }
   
+  //update cat position 
   void update(){
     velocity += gravity;
     y += velocity;
     
-    //trying to troubleshoot the cat's constrains 
-    y =constrain(y,0,height+80);
+    //trying to troubleshoot the cat's constraints 
+    y =constrain(y,0,height-40);
   }
   
+//draw the cat
 void display(){  
-  //draw the cat
   noStroke();
-  //left paw
-  rectMode(CORNER);
   //white
   fill(255);
+  //left paw
   rect(40,y+180,20,10);
   //right paw
   rect(100,y+180,20,10);
   
   //orange
-  //found out fill(232,y+154,95) does cool colour changing effect 
+  //found out fill(232,y+154,95) does a weird colour changing effect 
   fill(232,154,95);
   //cat body
   ellipse(80,y+170,60,100);
@@ -88,8 +91,15 @@ void display(){
   
 }
   
-  //fix jumping function
+  //gives cat vertical velocity when jumping 
   void jump(){
       velocity = -10;
+  }
+  
+  //uses cat's head to check the distance from the asteroid the head 
+  //the collision occurs if the cat's head radius of 20 sums up to asteroid radius
+  boolean checkCollision(float asteroidX,float asteroidY, float asteroidRadius){
+    float d = dist(80, y+125,asteroidX,asteroidY);
+    return d < 20 + asteroidRadius;
   }
 }

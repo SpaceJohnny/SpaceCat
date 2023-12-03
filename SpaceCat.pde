@@ -1,11 +1,10 @@
 Cat cat;
 //aidhaiohjdo ahdoja
 //coding is so painful :(
-////problem: cat bounces up to 170 and goes out of bounds
 
 void setup(){
   //originally 400x400
-  //thought a bigger size would be better to play with
+  //thought that a bigger size would be better to play with
   size(800,600);
   frameRate(60);
   
@@ -28,7 +27,14 @@ void draw(){
   for (Asteroid asteroid:asteroids){
     asteroid.display();
     asteroid.update();
+  
+  //check if cat collides with asteroidX,Y, and radius 
+  //if collision occurs, game over 
+  if (cat.checkCollision(asteroid.asteroidX,asteroid.asteroidY,asteroid.radius)){
+    gameOver();
   }
+  }
+  
   //call cat drawing from cat class
   cat.display();
   cat.update();
@@ -39,7 +45,21 @@ void keyPressed(){
   if (key == ' '){
     cat.jump();
   }
+  //if (key == 'R' || 'r'){
+    //gameOver();
+//}
 }
 
+//Game Over screen when cat collides with asteroid 
+void gameOver(){
+  background(255,0,0);
+  //white text
+  fill(255);
+  textSize(32);
+  textAlign(CENTER,CENTER);
+  text("Game Over! Press 'R' to Restart", width/2,height/2);
+  //stops the draw loop 
+  noLoop();    
+}
 
     
