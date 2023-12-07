@@ -29,8 +29,6 @@ class Asteroid{
   //draw the asteroid 
   void display(){
     fill(255);
-    ellipse(asteroidX,asteroidY, radius*2, radius*2);
+    ellipse(asteroidX,asteroidY,radius*2,radius*2);
   }
 }
-    
-    

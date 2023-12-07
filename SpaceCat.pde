@@ -1,5 +1,7 @@
 Cat cat;
 
+//name of PVector 
+PVector v;
 //PVector to make background stars
 PVector[] stars;
 
@@ -33,6 +35,11 @@ void setup(){
   for(int i=0;i<numStars; i++){
     stars[i] = new PVector(random(width), random(height));
   }
+  
+  //scouce: processing.com
+  //what and how to use PVector.random2D() within this code
+  v = PVector.random2D();
+  println(v);
 }
 
 void draw(){
