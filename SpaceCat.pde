@@ -1,6 +1,11 @@
-//aidhaiohjdo ahdoja
-//coding is so painful :(
 Cat cat;
+
+//PVector to make background stars
+PVector[] stars;
+
+//initialize 250 stars in the background 
+//used later for stars array
+int numStars = 250;
 
 //used for when the game is restarted
 boolean GameOverScreen = false; 
@@ -21,10 +26,32 @@ void setup(){
   for (int i=0; i<5; i++){
     asteroids.add(new Asteroid());
   }
+  
+  //make array of PVector of stars 
+  //generate a random location of x and y of stars
+  stars = new PVector[numStars];
+  for(int i=0;i<numStars; i++){
+    stars[i] = new PVector(random(width), random(height));
+  }
 }
 
 void draw(){
   background(0);
+  
+  fill(230);
+  noStroke(); 
+  for (PVector star:stars){
+    //stars move randomly ever so slightly in the background
+    star.x += random(-0.1,0.1);
+    star.y += random(-0.1,0.1);
+    
+    //stars are constrain to the screen
+    star.x = constrain (star.x,0,width);
+    star.y = constrain(star.y,0,height);
+    
+    //shape of the star 
+    ellipse(star.x,star.y,2,2);
+  }
   
   //call asteroid drawing from asteroid class
   for (Asteroid asteroid:asteroids){
@@ -81,5 +108,3 @@ void restartGame(){
     asteroids.add(new Asteroid());
   }
 }
-
-    
