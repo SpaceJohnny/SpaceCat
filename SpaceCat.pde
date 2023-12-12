@@ -5,6 +5,7 @@ PVector v;
 //PVector to make background stars
 PVector[] stars;
 
+////skills inventory system 10////
 //initialize 250 stars in the background 
 //used later for stars array
 int numStars = 250;
@@ -12,23 +13,29 @@ int numStars = 250;
 //used for when the game is restarted
 boolean GameOverScreen = false; 
 
+////skills inventory system 4////
 void setup(){
   //originally 400x400
   //thought that a bigger size would be better to play with
   size(800,600);
   frameRate(60);
   
+  ////skills inventory classes/objects 29////
   //assign vaiable cat to class cat 
   cat = new Cat();
   //arrayList named Asteroid to store ojects 
   asteroids = new ArrayList<Asteroid>();
   
+  ////skills inventory system 8////
+  ////skills inventory lists 35////
   //asteroid objects added to asteroids ArrayList
   //looped 5 times
   for (int i=0; i<5; i++){
     asteroids.add(new Asteroid());
   }
   
+  ////skills inventory lists 33////
+  ////skills inventory vectors 38////
   //make array of PVector of stars 
   //generate a random location of x and y of stars
   stars = new PVector[numStars];
@@ -36,12 +43,14 @@ void setup(){
     stars[i] = new PVector(random(width), random(height));
   }
   
+  ////attempted to understand skills iventory vectors 41////
   //scouce: processing.com
   //what and how to use PVector.random2D() within this code
   v = PVector.random2D();
   println(v);
 }
 
+////skills inventory system 5////
 void draw(){
   background(0);
   
@@ -60,11 +69,13 @@ void draw(){
     ellipse(star.x,star.y,2,2);
   }
   
+  ////skills inventory loops 16////
   //call asteroid drawing from asteroid class
   for (Asteroid asteroid:asteroids){
     asteroid.display();
     asteroid.update();
   
+  ////skills inventory control flow 12////
   //check if cat collides with asteroidX,Y, and radius 
   //if collision occurs, game over 
   if (cat.checkCollision(asteroid.asteroidX,asteroid.asteroidY,asteroid.radius)){
@@ -77,6 +88,8 @@ void draw(){
   cat.update();
 }
 
+////skills inventory system 7////
+////skills inventory control flow 13 & 14////
 //if space key is pressed, the cat jumps 
 void keyPressed(){
   if (key == ' '){
@@ -87,6 +100,7 @@ void keyPressed(){
   }
 }
 
+////skills inventory shapes 3////
 //Game Over screen when cat collides with asteroid 
 void gameOver(){
   background(255,0,0);

@@ -3,6 +3,9 @@ class Cat{
   PVector velocity;
   PVector gravity;
   
+  
+  ////skills inventory classes/objects 28,30////
+  ////skills inventory vectors 39////
   //make cat physics 
   //cat doesn't move horizontally 
   //cat only moves by jumping vertically, accelerates when doing downwards 
@@ -18,6 +21,7 @@ class Cat{
     velocity.add(gravity);
     position.add(velocity);
     
+    ////skills inventory system 6////
     //trying to troubleshoot the cat's constraints 
     //if the low value is 0, it will cause a game over screen   
     position.y = constrain(position.y,1,height+10);
@@ -28,6 +32,7 @@ class Cat{
   }
 }
 
+////skills inventrory shapes 1,2////
 //draw the cat
 void display(){  
   noStroke();
@@ -103,6 +108,7 @@ void display(){
       velocity.y = -10;
   }
   
+  ////skills inventory functions 21,23,24////
   //uses cat's head to check the distance from the asteroid the head 
   //i used the cat's head as a hitbox because the cat is kinda large so 
   //it would be easier to play if it was just the head

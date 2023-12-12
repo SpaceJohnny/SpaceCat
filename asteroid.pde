@@ -1,7 +1,9 @@
+////skills inventory lists 34////
 //arraylist to randomize asteroids
 ArrayList<Asteroid> asteroids;
 
 class Asteroid{
+  ////skills inventory system 9////
   float asteroidX;
   float asteroidY;
   float speed;
@@ -15,6 +17,7 @@ class Asteroid{
     radius = random(15,30);
   }
   
+  ////skills inventory functions 20////
   void update(){
     //move asteroids from left to right 
     asteroidX -= speed;
